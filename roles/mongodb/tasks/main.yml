@@ -1,0 +1,68 @@
+---
+- import_tasks: CentOS.yml
+  when: ansible_distribution == 'CentOS'
+
+- import_tasks: Ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+
+
+- name: Install pymongo
+  pip:
+    name: pymongo
+
+- name: Copy MongoDB Configuration
+  copy: 
+    src: mongod.conf
+    dest: /etc/
+
+- name: Start MongoDB
+  service:
+    name:  mongod
+    enabled: yes 
+    state: started 
+
+- name: Setting MongoDB Administrator User
+  mongodb_user:
+    database: admin
+    name: root
+    password: '{{mongodb_pwd}}'
+    roles: root
+    state: present
+
+- name: Enable MongoDB authorization
+  lineinfile:
+    path: /etc/mongod.conf
+    regexp: '  authorization: disabled'
+    line: '  authorization: enabled'
+
+- name: restart MongoDB
+  service: name=mongod state=restarted enabled=yes
+
+- name: Create a MongoDB symbolic link
+  file:
+    src: '{{item.src}}'
+    dest: '{{item.dest}}'
+    state: link
+  with_items:
+    - {src: /etc/mongod.conf,dest: /data/config/mongod.conf}  
+    - {src: /var/log/mongodb,dest: /data/logs/mongodb}   # 目录待确定
+
+
+
+- name: Create credentials Folder
+  file:
+    path: /credentials
+    state: directory
+
+- name: Write Databases Password
+  template:
+    src: password.txt.jinja2
+    dest: /credentials/password.txt
+    mode: 644
+
+
+- name: Check MongoDB Version
+  shell: mongo --version
+  register: mongo_ver
+  notify: MongoDB Version
