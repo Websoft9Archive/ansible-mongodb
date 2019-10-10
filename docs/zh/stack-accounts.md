@@ -1,18 +1,13 @@
 # 账号密码
 
-使用Metabase，可能会用到的几组账号密码如下：
+使用 MongoDB，可能会用到的几组账号密码如下：
 
-## Metabase
-
-在初始化安装的时候由用户自行设置
-
-## MySQL
+## MongoDB
 
 * 管理员账号：*`root`*
 * 管理员密码：存储在您的服务器指定文件中：*/credentials/password.txt*。建议通过云控制台直接连接服务器，进入命令终端，运行cat命令获取数据库密码：
    ![运行cat命令](https://libs.websoft9.com/Websoft9/DocsPicture/zh/common/catdbpassword-websoft9.png)
-* MySQL可视化管理地址： *http://服务器公网 IP:9090*
-   ![phpMyAdmin](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mysql/phpmyadmin-logincn-websoft9.png)
+* MongoDB 可视化管理地址： *http://服务器公网 IP:9091*
 
 ## Linux
 
