@@ -1,27 +1,24 @@
-### CentOS
+# ansible-mongodb
 
-配置文件路径: /etc/my.cnf
+This project is an Ansible automation scripts for installing MongoDB on major Cloud Platform, We have tested it on Azure, AWS, Alibaba Cloud, HUAWEI CLOUD.
 
+If you are not familiar with the Ansible, you can deploy our mongodb Image published on Cloud Platform
 
+You can use these scripts free for any study or business use under the Server Side Public License (SSPL) v1
 
+#### Components
 
+- MongoDB Community
+- Docker
+- AdminMongo image of Docker
 
-
-### Ubuntu
-
-配置文件路径: /etc/mysql/mysql.conf.d/mysqld.cnf
-
-
-
-### 共同
-
-端口 3306
-
-数据库目录: /data/mysql
-
-服务名称 mysql.service
+> If MongoDB Community is not meet your requirements, you can upgrade to [MongoDB Enterprise](https://www.mongodb.com/download-center/enterprise) by yourself and get the license from MongoDB, Inc.
 
 
+#### Document
 
-## 变量
-mysqlver: 5.7     # centos版本 5.5 5.6 5.7  Ubuntu支持5.7和8.0
+https://support.websoft9.com/docs/mongodb
+
+#### LICENSE
+
+MongoDB Community is free and the source is available. Versions released prior to October 16, 2018 are published under the AGPL. All versions released after October 16, 2018, including patch fixes for prior versions, are published under the Server Side Public License (SSPL) v1. See individual files for details.
