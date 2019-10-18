@@ -2,7 +2,7 @@
 localhost
 
 [mongodb] # 非root用户名
-40.76.53.90 ansible_ssh_user=websoft9 ansible_ssh_pass=Qwer12345678 ansible_sudo_pass=Qwer12345678
+52.170.1.92 ansible_ssh_user=websoft9 ansible_ssh_pass=Qwerty123456 ansible_sudo_pass=Qwerty123456
 
 # ansible_ssh_user
 # ansible_ssh_pass
