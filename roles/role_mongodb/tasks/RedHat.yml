@@ -1,0 +1,37 @@
+---
+- name: Install the repository RPM
+  yum_repository:
+    name: mongodb-org-{{mongodb_version}}
+    description: mongodb {{mongodb_version}}
+    file: mongodb-org-{{mongodb_version}}
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{mongodb_version}}/x86_64/
+    gpgkey: https://www.mongodb.org/static/pgp/server-{{mongodb_version}}.asc
+    gpgcheck: yes
+    enabled: yes
+  when: ansible_distribution != 'Amazon'
+  
+- name: Install the repository RPM
+  yum_repository:
+    name: mongodb-org-{{mongodb_version}}
+    description: mongodb {{mongodb_version}}
+    file: mongodb-org-{{mongodb_version}}
+    baseurl: https://repo.mongodb.org/yum/redhat/7/mongodb-org/{{mongodb_version}}/x86_64/
+    gpgkey: https://www.mongodb.org/static/pgp/server-{{mongodb_version}}.asc
+    gpgcheck: yes
+    enabled: yes
+  when: ansible_distribution == 'Amazon'
+
+
+
+- name: Install MongoDB{{mongodb_version}}
+  yum: 
+    name: [mongodb-org]
+    state: latest
+
+
+- name: Create Databases Directory
+  file:
+    path: /data/mongo
+    state: directory
+    owner: mongod
+    group: mongod

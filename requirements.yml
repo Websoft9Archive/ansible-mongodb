@@ -1,0 +1,20 @@
+- src: http://github.com/websoft9dev/role_common
+  version: master
+
+- src: http://github.com/websoft9dev/role_cloud
+  version: master
+
+- src: http://github.com/websoft9dev/role_mongodb
+  version: master
+
+- src: http://github.com/websoft9dev/role_init_password
+  version: master
+
+- src: http://github.com/websoft9dev/role_docker
+  version: master
+
+- src: http://github.com/websoft9dev/role_docker_phpmyadmin
+  version: master
+
+- src: http://github.com/websoft9dev/role_end
+  version: master

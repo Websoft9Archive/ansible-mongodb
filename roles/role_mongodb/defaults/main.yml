@@ -1,0 +1,2 @@
+mongodb_version: "4.0"    # 支持版本  3.0  3.2 3.4 3.6  4.0 
+mongodb_root_password: "123456"
