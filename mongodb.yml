@@ -19,8 +19,8 @@
       private: no
       default: 4
 
-    - name: 'phpmyadmin_selection'
-      prompt: "\nDo you want to install phpMyAdmin of Docker? [ 1/2 ] \n\n
+    - name: 'adminmongo_selection'
+      prompt: "\nDo you want to install adminmongo of Docker? [ 1/2 ] \n\n
       1: Yes\n
       2: No\n"
       private: no
@@ -35,21 +35,21 @@
       '5': '4.0'
     mongodb_version: "{{mongodb_select[mongodb_selection]}}" 
 
-    phpmyadmin_select:
+    adminmongo_select:
       '1': True
       'y': True
       '2': ''
       'n': ''
       
     
-    phpmyadmin_install_docker: "{{phpmyadmin_select[phpmyadmin_selection]}}" 
+    adminmongo_install_docker: "{{adminmongo_select[adminmongo_selection]}}" 
   
   
   roles:
    - {role: role_common, tags: "role_common"}   
    - {role: role_cloud, tags: "role_cloud"}
    - {role: role_mongodb, tags: "role_mongodb"}
-   - {role: role_docker, tags: "role_docker", when: phpmyadmin_install_docker}
-   - {role: role_docker_phpmyadmin, tags: "role_docker_phpmyadmin", when: phpmyadmin_install_docker}
+   - {role: role_docker, tags: "role_docker", when: adminmongo_install_docker}
+   - {role: role_docker_adminmongo, tags: "role_docker_adminmongo", when: adminmongo_install_docker}
    - {role: role_init_password, tags: "role_init_password"}
    - {role: role_end, tags: "role_end"} 

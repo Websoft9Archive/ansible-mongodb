@@ -1,5 +1,5 @@
 
-# MySQL 自动化安装与部署
+# MongoDB 自动化安装与部署
 
 本项目是由 [Websoft9](https://www.websoft9.com) 研发的 [MongoDB](https://www.mongodb.com/) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 MySQL，让原本复杂的安装过程变得没有任何技术门槛。  
 
@@ -19,7 +19,7 @@
 
 ## 组件
 
-包含的核心组件为：MongoDB(3.0/3.2/3.4/3.6/4.0 版本可选安装)，phpMyAdmin on Docker（可选安装项）
+包含的核心组件为：MongoDB(3.0/3.2/3.4/3.6/4.0 版本可选安装)，adminmongo on Docker（可选安装项）
 
 更多请见[参数表](/docs/zh/stack-components.md)
 
