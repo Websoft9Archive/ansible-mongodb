@@ -13,7 +13,7 @@
 - src: http://github.com/websoft9dev/role_docker
   version: master
 
-- src: http://github.com/websoft9dev/role_docker_phpmyadmin
+- src: http://github.com/websoft9dev/role_docker_adminmongo
   version: master
 
 - src: http://github.com/websoft9dev/role_end

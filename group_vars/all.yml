@@ -1,3 +1,0 @@
-cloud: none
-mongodb_ver: 3.2    # 默认版本  3.0  3.2 3.4 3.6  4.0  
-                    # 3.0支持Ubuntu14.04, 3.2-3.6版本支持到Ubuntu16.04, 4.x系列支持Ubuntu18.04
