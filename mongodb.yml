@@ -52,4 +52,5 @@
    - {role: role_docker, tags: "role_docker", when: adminmongo_install_docker}
    - {role: role_docker_adminmongo, tags: "role_docker_adminmongo", when: adminmongo_install_docker}
    - {role: role_init_password, tags: "role_init_password"}
+   - {role: role_preend, tags: "role_preend"}
    - {role: role_end, tags: "role_end"} 
