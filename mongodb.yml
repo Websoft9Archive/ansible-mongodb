@@ -15,7 +15,7 @@
       2: MongoDB3.2\n
       3: MongoDB3.4\n
       4: MongoDB3.6\n
-      4: MongoDB4.0\n"
+      5: MongoDB4.0\n"
       private: no
       default: 4
 
