@@ -11,16 +11,21 @@
   vars_prompt:
     - name: 'mongodb_selection'
       prompt: "\nPlease choose the number for MongoDB version [ 1/2/3/4] \n\n
-      1: MongoDB3.0\n
-      2: MongoDB3.2\n
-      3: MongoDB3.4\n
-      4: MongoDB3.6\n
-      5: MongoDB4.0\n"
+      1: MongoDB3.0(support Ubuntu16 and Redhat7)\n
+      2: MongoDB3.2(support Ubuntu16 and Redhat7)\n
+      3: MongoDB3.3(support Ubuntu16 and Redhat74)\n
+      4: MongoDB3.4(support Ubuntu16 and Redhat7)\n
+      5: MongoDB3.5(support Ubuntu16 and Redhat7)\n
+      6: MongoDB3.6(support Ubuntu16 and Redhat7)\n
+      7: MongoDB3.7(support Ubuntu16 and Redhat7)\n
+      8: MongoDB4.0\n
+      9: MongoDB4.1\n
+      10: MongoDB4.2\n
       private: no
       default: 4
 
     - name: 'adminmongo_selection'
-      prompt: "\nDo you want to install adminmongo of Docker? [ 1/2 ] \n\n
+      prompt: "\nDo you want to install adminMongo of Docker? [ 1/2 ] \n\n
       1: Yes\n
       2: No\n"
       private: no
@@ -30,9 +35,14 @@
     mongodb_select:
       '1': '3.0'
       '2': '3.2'
-      '3': '3.4'
-      '4': '3.6'
-      '5': '4.0'
+      '3': '3.3'
+      '4': '3.4'
+      '5': '3.5'
+      '6': '3.6'
+      '7': '3.7'
+      '8': '4.0'
+      '9': '4.1'
+      '10': '4.2'
     mongodb_version: "{{mongodb_select[mongodb_selection]}}" 
 
     adminmongo_select:
