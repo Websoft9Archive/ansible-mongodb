@@ -25,7 +25,7 @@
 ```
       1: MongoDB3.0(support Ubuntu16 and Redhat7)\n
       2: MongoDB3.2(support Ubuntu16 and Redhat7)\n
-      3: MongoDB3.3(support Ubuntu16 and Redhat74)\n
+      3: MongoDB3.3(support Ubuntu16 and Redhat7)\n
       4: MongoDB3.4(support Ubuntu16 and Redhat7)\n
       5: MongoDB3.5(support Ubuntu16 and Redhat7)\n
       6: MongoDB3.6(support Ubuntu16 and Redhat7)\n
