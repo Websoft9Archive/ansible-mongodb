@@ -46,12 +46,10 @@
     adminmongo_select:
       '1': True
       'y': True
-      '2': ''
-      'n': ''
+      '2': False
+      'n': False
       
-    
     adminmongo_install_docker: "{{adminmongo_select[adminmongo_selection]}}" 
-  
   
   roles:
    - {role: role_common, tags: "role_common"}   
