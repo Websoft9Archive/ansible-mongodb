@@ -19,7 +19,7 @@
 
 ## 组件
 
-包含的核心组件为：MongoDB(3.0/3.2/3.3/3.4/3.5/3.6/3.7/4.0/4.1/4.2 版本可选安装)，adminmongo on Docker（可选安装项）  
+包含的核心组件为：MongoDB(3.0/3.2/3.3/3.4/3.5/3.6/3.7/4.0/4.2 版本可选安装)，adminmongo on Docker（可选安装项）  
 注意操作系统对应的版本支持
 
 ```
@@ -31,8 +31,7 @@
       6: MongoDB3.6(support Ubuntu16 and Redhat7)\n
       7: MongoDB3.7(support Ubuntu16 and Redhat7)\n
       8: MongoDB4.0\n
-      9: MongoDB4.1\n
-      10: MongoDB4.2\n
+      9: MongoDB4.2\n
 ```
 
 更多请见[参数表](/docs/zh/stack-components.md)
