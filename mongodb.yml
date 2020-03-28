@@ -11,13 +11,13 @@
   vars_prompt:
     - name: 'mongodb_selection'
       prompt: "\nPlease choose the number for MongoDB version [ 1/2/3/4] \n\n
-      1: MongoDB3.0(support Ubuntu16 and Redhat7)\n
-      2: MongoDB3.2(support Ubuntu16 and Redhat7)\n
-      3: MongoDB3.3(support Ubuntu16 and Redhat74)\n
-      4: MongoDB3.4(support Ubuntu16 and Redhat7)\n
-      5: MongoDB3.5(support Ubuntu16 and Redhat7)\n
-      6: MongoDB3.6(support Ubuntu16 and Redhat7)\n
-      7: MongoDB3.7(support Ubuntu16 and Redhat7)\n
+      1: MongoDB3.0(support Ubuntu16 and Redhat7 family)\n
+      2: MongoDB3.2(support Ubuntu16 and Redhat7 family)\n
+      3: MongoDB3.3(support Ubuntu16 and Redhat7 family)\n
+      4: MongoDB3.4(support Ubuntu16 and Redhat7 family)\n
+      5: MongoDB3.5(support Ubuntu16 and Redhat7 family)\n
+      6: MongoDB3.6(support Ubuntu16 and Redhat7 family)\n
+      7: MongoDB3.7(support Ubuntu16 and Redhat7 family)\n
       8: MongoDB4.0\n
       9: MongoDB4.2\n"
       private: no
