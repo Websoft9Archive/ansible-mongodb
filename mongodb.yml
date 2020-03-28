@@ -19,8 +19,7 @@
       6: MongoDB3.6(support Ubuntu16 and Redhat7)\n
       7: MongoDB3.7(support Ubuntu16 and Redhat7)\n
       8: MongoDB4.0\n
-      9: MongoDB4.1\n
-      10: MongoDB4.2\n"
+      9: MongoDB4.2\n"
       private: no
       default: 4
 
@@ -41,8 +40,7 @@
       '6': '3.6'
       '7': '3.7'
       '8': '4.0'
-      '9': '4.1'
-      '10': '4.2'
+      '9': '4.2'
     mongodb_version: "{{mongodb_select[mongodb_selection]}}" 
 
     adminmongo_select:
