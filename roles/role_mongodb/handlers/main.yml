@@ -1,3 +1,0 @@
-- name: MongoDB Version
-  debug:
-    var: mongo_ver.stdout_lines[0]
