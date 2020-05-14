@@ -1,63 +1,68 @@
 # 参数
 
-## 组件及路径
+MongoDB 预装包包含 MongoDB 运行所需一序列支撑软件（简称为“组件”），下面列出主要组件名称、安装路径、配置文件地址、端口、版本等重要的信息。
 
-Metabase部署包中不仅仅只有Metabase本身，还包含一序列支持Metabase运行所需的其他软件（这里称之为组件），下面列出主要组件名称、安装路径、配置文件地址等重要的信息：
+## 路径
 
-### Metabase
+MongoDB 安装到Linux还是Windows系统，对应的路径有很大的差异，请根据实际情况参考：
 
-Metabase安装目录: /data/wwwroot/metabase  
-Metabase配置文件: /data/wwwroot/metabase/ccc.ii
+> 如果是mariadb镜像，以上路径mongodb替换即可
 
-> Metabase配置文件中包含数据库连接信息，更改了MySQL数据库账号密码，此处也需要对应修改
+### Linux
 
-### Java
-安装路径
-配置路径
-日志路径
+#### MongoDB
 
-### Tomcat
-Apache Vhost Configuration File: _/etc/httpd/conf.d/vhost.conf_  
-Apache Configuration directory: _/etc/httpd/conf.d_  
-Apache Log Files: _/var/log/httpd_
+MongoDB 安装目录: *usr/local/mongodb*  
+MongoDB 配置文件: *etc/my.cnf*   
+MongoDB 数据目录：*/data/mongodb*   
+MongoDB 日志文件: */var/log/mongodb/mongodbd.log*   
+MongoDB PIN: */run/mongodbd/mongodbd.pid*   
+MongoDB Socket: */var/lib/mongodb/mongodb.sock*
 
+#### phpMyAdmin on Docker
 
-### Nginx
-Apache Vhost Configuration File: _/etc/httpd/conf.d/vhost.conf_  
-Apache Configuration directory: _/etc/httpd/conf.d_  
-Apache Log Files: _/var/log/httpd_
+除了LAMP或LNMP环境之外，phpMyAdmin 是采用 Docker 方式来安装的
 
-### MYSQL
-Database install directory: /usr/local/mysql  
-Database data directory: /data/mysql  
-Database Configuration File: /etc/my.cnf  
-MySQL Management URL: _http://Internet IP/phpmyadmin_
+#### phpMyAdmin on PHP
 
-### Redis
-Redis configuration file: _/etc/redis.conf_  
-Redis data directory: _/var/lib/redis_
+对于 PHP 环境预装包来说（例如：LAMP/LNMP等），phpMyAdmin 是作为一个 PHP 应用程序来安装的   
+
+phpMyAdmin 安装路径: */data/apps/phpmyadmin*  
+phpMyAdmin 配置文件: */data/apps/phpmyadmin/config.inc.php*   
+phpMyAdmin 虚拟主机配置文件: */etc/httpd/conf.d/phpMyAdmin.conf*   
+
+### Windows
+
+* 目录：C:/websoft9/mongodb
+* 配置文件：C:/websoft9/mongodb/etc/my.ini
+* 数据文件目录:：C:/websoft9/mongodb/data
 
 ## 端口号
 
-下面是您在使用本镜像过程中，需要用到的端口号，请通过云控制台安全组进行设置
+在云服务器中，通过 **[安全组设置](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** 来控制（开启或关闭）端口是否可以被外部访问。 
+
+本应用建议开启的端口如下：
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| MySQL | 3306 | 远程连接MySQL | 可选 |
-| HTTP | 80 | 通过http访问Metabase | 必须 |
-| HTTPS | 443 | 通过https访问Metabase | 可选 |
-| phpMyAdmin on Docker | 9090 | 可视化管理MySQL | 可选 |
+| phpMyAdmin on Docker | 9090 | 通过 HTTP 访问 phpMyAdmin | 可选 |
+| MongoDB | 3306 | 远程连接MongoDB | 可选 |
+| MariaDB | 3306 | 远程连接MariaDB | 可选 |
 
 ## 版本号
 
-组件对应的基本版本号可以通过云市场商品页面查看，但部署到您的服务器之后，版本会有一定的升级，故更为精准的版本请通过在服务器上运行命令查看：
+组件版本号可以通过云市场商品页面查看。但部署到您的服务器之后，组件会自动进行更新导致版本号有一定的变化，故精准的版本号请通过在服务器上运行命令查看：
 
 ```shell
-# Tomcat version
+# Check all components version
+sudo cat /data/logs/install_version.txt
 
-# Nginx version
+# Linux Version
+lsb_release -a
 
-# MySQL version
+# MongoDB version
+mongodb -V
 
-# Java Version
+# MongoDB Version
+docker -v
 ```
