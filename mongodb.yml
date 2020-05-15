@@ -23,7 +23,7 @@
       private: no
       default: 4
       
-   - name: 'mongodb_server_selection'
+    - name: 'mongodb_server_selection'
       prompt: "\nMongoDB Community or MongoDB Enterprise? [ 1/2 ] \n\n
       1: MongoDB Community\n
       2: MongoDB Enterprise\n"
