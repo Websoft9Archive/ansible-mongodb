@@ -22,6 +22,13 @@
       9: MongoDB4.2\n"
       private: no
       default: 4
+      
+   - name: 'mongodb_server_selection'
+      prompt: "\nMongoDB Community or MongoDB Enterprise? [ 1/2 ] \n\n
+      1: MongoDB Community\n
+      2: MongoDB Enterprise\n"
+      private: no
+      default: 1
 
     - name: 'adminmongo_selection'
       prompt: "\nDo you want to install adminMongo of Docker? [ 1/2 ] \n\n
@@ -41,7 +48,13 @@
       '7': '3.7'
       '8': '4.0'
       '9': '4.2'
+      
+    mongodb_server_select:
+      '1': 'community'
+      '2': 'enterprise'
+      
     mongodb_version: "{{mongodb_select[mongodb_selection]}}" 
+    mongodb_server: "{{mongodb_server_select[mongodb_server_selection]}}" 
 
     adminmongo_select:
       '1': True
