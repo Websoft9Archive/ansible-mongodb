@@ -92,7 +92,7 @@
     mongodb_adminmongo: "{{mongodb_adminmongo_select[mongodb_adminmongo_selection]}}" 
   
   roles:
-   - {role: role_common, tags: "role_common"}   
+   #- {role: role_common, tags: "role_common"}   
    - {role: role_cloud, tags: "role_cloud"}
    - {role: role_mongodb, tags: "role_mongodb"}
    - {role: role_docker, tags: "role_docker", when: mongodb_adminmongo}
