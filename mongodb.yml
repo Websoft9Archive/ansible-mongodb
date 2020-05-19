@@ -87,7 +87,7 @@
       
     mongodb_version: "{{mongodb_version_select[mongodb_version_selection]}}" 
     mongodb_server: "{{mongodb_server_select[mongodb_server_selection]}}" 
-    mongodb_remote: "{{mongodb_remote:_select[mongodb_remote:_selection]}}" 
+    mongodb_remote: "{{mongodb_remote_select[mongodb_remote_selection]}}" 
     mongodb_authentication: "{{mongodb_authentication_select[mongodb_authentication_selection]}}" 
     mongodb_adminmongo: "{{mongodb_adminmongo_select[mongodb_adminmongo_selection]}}" 
   
