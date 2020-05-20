@@ -9,15 +9,15 @@
     - vars/main.yml
 
   vars_prompt:
-    - name: 'mongodb_selection'
+    - name: 'mongodb_version_selection'
       prompt: "\nPlease choose the number for MongoDB version [ 1/2/3/4] \n\n
-      1: MongoDB3.0(support Ubuntu16 and Redhat7 family)\n
-      2: MongoDB3.2(support Ubuntu16 and Redhat7 family)\n
-      3: MongoDB3.3(support Ubuntu16 and Redhat7 family)\n
-      4: MongoDB3.4(support Ubuntu16 and Redhat7 family)\n
-      5: MongoDB3.5(support Ubuntu16 and Redhat7 family)\n
-      6: MongoDB3.6(support Ubuntu16 and Redhat7 family)\n
-      7: MongoDB3.7(support Ubuntu16 and Redhat7 family)\n
+      1: MongoDB3.0(not support Ubuntu18 and AmazonLinux2)\n
+      2: MongoDB3.2(not support Ubuntu18 and AmazonLinux2)\n
+      3: MongoDB3.3(not support Ubuntu18 and AmazonLinux2)\n
+      4: MongoDB3.4(not support Ubuntu18 and AmazonLinux2)\n
+      5: MongoDB3.5(not support Ubuntu18 and AmazonLinux2)\n
+      6: MongoDB3.6(not support Ubuntu18 and AmazonLinux2)\n
+      7: MongoDB3.7(not support Ubuntu18)\n
       8: MongoDB4.0\n
       9: MongoDB4.2\n"
       private: no
@@ -29,8 +29,22 @@
       2: MongoDB Enterprise\n"
       private: no
       default: 1
+    
+    - name: 'mongodb_remote_selection'
+      prompt: "\nDo you want to enable MongoDB remote connection? [ 1/2 ] \n\n
+      1: Yes\n
+      2: No\n"
+      private: no
+      default: 1
+      
+    - name: 'mongodb_authentication_selection'
+      prompt: "\nDo you want to enable authentication (add administrator user) for MongoDB? [ 1/2 ] \n\n
+      1: Yes\n
+      2: No\n"
+      private: no
+      default: 1
 
-    - name: 'adminmongo_selection'
+    - name: 'mongodb_adminmongo_selection'
       prompt: "\nDo you want to install adminMongo of Docker? [ 1/2 ] \n\n
       1: Yes\n
       2: No\n"
@@ -38,7 +52,7 @@
       default: 1
 
   vars:
-    mongodb_select:
+    mongodb_version_select:
       '1': '3.0'
       '2': '3.2'
       '3': '3.3'
@@ -52,23 +66,36 @@
     mongodb_server_select:
       '1': 'community'
       '2': 'enterprise'
-      
-    mongodb_version: "{{mongodb_select[mongodb_selection]}}" 
-    mongodb_server: "{{mongodb_server_select[mongodb_server_selection]}}" 
-
-    adminmongo_select:
+   
+    mongodb_remote_select:
+      '1': True
+      'y': True
+      '2': False
+      'n': False
+    
+    mongodb_authentication_select:
       '1': True
       'y': True
       '2': False
       'n': False
       
-    adminmongo_install_docker: "{{adminmongo_select[adminmongo_selection]}}" 
+    mongodb_adminmongo_select:
+      '1': True
+      'y': True
+      '2': False
+      'n': False
+      
+    mongodb_version: "{{mongodb_version_select[mongodb_version_selection]}}" 
+    mongodb_server: "{{mongodb_server_select[mongodb_server_selection]}}" 
+    mongodb_remote: "{{mongodb_remote_select[mongodb_remote_selection]}}" 
+    mongodb_authentication: "{{mongodb_authentication_select[mongodb_authentication_selection]}}" 
+    mongodb_adminmongo: "{{mongodb_adminmongo_select[mongodb_adminmongo_selection]}}" 
   
   roles:
    - {role: role_common, tags: "role_common"}   
    - {role: role_cloud, tags: "role_cloud"}
    - {role: role_mongodb, tags: "role_mongodb"}
-   - {role: role_docker, tags: "role_docker", when: adminmongo_install_docker}
+   - {role: role_docker, tags: "role_docker", when: mongodb_adminmongo}
    - {role: role_init_password, tags: "role_init_password"}
    - {role: role_preend, tags: "role_preend"}
    - {role: role_end, tags: "role_end"} 
