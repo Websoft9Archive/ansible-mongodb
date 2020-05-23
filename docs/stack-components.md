@@ -3,38 +3,21 @@
 The MongoDB deployment package contains a sequence software (referred to as "components") required for MongoDB to run. The important information such as the component name, installation directory path, configuration file path, port, version, etc. are listed below.
 
 ## Path
-You should know the components is different for different OS before using MongoDB/MariaDB
 
-### Linux
+You should know the components is different for different OS before using MongoDB
 
-#### MongoDB&MariaDB
+### MongoDB
 
-MongoDB install directory: */usr/share/mongodb*  
-MongoDB data directory: */data/mongodb*  
-MongoDB Configuration File: */etc/my.cnf*  
-MongoDB error log: */var/log/mongodb/mongodbd.log*  
-MongoDB Process Identification Number: */run/mongodbd/mongodbd.pid*  
-MongoDB Socket: */var/lib/mongodb/mongodb.sock*  
+MongoDB data directory: */var/lib/mongodb*  
+MongoDB Configuration File:  */etc/mongod.conf*  
+MongoDB logs File:  */var/log/mongodb*  
 
-#### phpMyAdmin on Docker
+### adminMongo on Docker
 
-Most of time, we used Docker to install phpMyAdmin
+adminMongo installed by Docker
 
-#### phpMyAdmin on PHP
-
-For php runtime, e.g LAMP/LNMP, phpMyAdmin is an application for deployment   
-
-phpMyAdmin installation directory: */data/apps/phpmyadmin*  
-phpMyAdmin configuration file: */data/apps/phpmyadmin/config.inc.php*   
-phpMyAdmin vhost configuration file: */etc/httpd/conf.d/phpMyAdmin.conf*   
-
-### Windows Sever
-
-#### MongoDB&MariaDB
-
-Database install directory: */C:/websoft9/mongodb*  
-Database data directory: */C:/websoft9/mongodb/data*  
-Database configuration file: */C:/websoft9/mongodb/my.ini*  
+Docker root directory: */var/lib/docker*  
+Docker image directory: */var/lib/docker/image*  
 
 
 ## Ports
@@ -45,9 +28,8 @@ These ports should be opened for this application:
 
 | Name | Number | Use |  Necessity |
 | --- | --- | --- | --- |
-| phpMyAdmin on Docker | 9090 | HTTP to visit phpMyAdmin | Optional |
-| MongoDB | 3306 | remote connect MongoDB | Optional |
-| MariaDB | 3306 | remote connect MariaDB | Optional |
+| adminMongo on Docker | 9091 | HTTP to visit adminMongo | Optional |
+| MongoDB Server | 27017 | remote connect MongoDB | Optional |
 
 ## Version
 

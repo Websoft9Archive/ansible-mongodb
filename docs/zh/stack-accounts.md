@@ -10,15 +10,15 @@
   - Linux 系统  
 
      **密码存储路径**：*/credentials/password.txt*    
-     **获取方式**： 建议通过云控制台的命令终端，运行下图**红框**所示命令，获取数据库密码   
-     ![运行cat命令](https://libs.websoft9.com/Websoft9/DocsPicture/zh/common/catdbpassword-websoft9.png)
+     **获取方式**： 建议通过云控制台的命令终端，运行下图*所示命令，获取数据库密码   
+     ```
+     cat /credentials/password.txt
+     ```
 
   - Windows 系统  
 
      **密码存储路径**：*C:/credentials/password.txt*     
      **获取方式**： 远程桌面到服务器，打开此文件即可   
-
-  **注意**：若服务器上不存在 password.txt 文件，那么数据库密码是 `123456`。此时务必修改为强密码，类似于：`f@N7eUUm25xAjP!$` ，这样有助于提高数据库的安全性，减少数据库密码被破解的风险。
 
  > 需要登录MongoDB，请参考 [图形化工具：phpMyAdmin](/zh/solution-phpmyadmin.md)
 
@@ -32,7 +32,7 @@
    |  云平台   |  管理员账号   | 其他|
    | --- | --- | --- |
    |  Azure   |  创建服务器的时候自行设置   | [如何开启root账户？](https://support.websoft9.com/docs/azure/zh/server-login.html#示例2：启用系统root账号) |
-   |  AWS Centos 系统   |  centos   | [如何开启root账户？](https://support.websoft9.com/docs/aws/zh/server-login.html#示例2：启用系统root账号) |
+   |  AWS Centos 系统   |  ec2-user   | [如何开启root账户？](https://support.websoft9.com/docs/aws/zh/server-login.html#示例2：启用系统root账号) |
    |  AWS Ubuntu 系统  |  ubuntu   | [如何开启root账户？](https://support.websoft9.com/docs/aws/zh/server-login.html#示例2：启用系统root账号)  |
    |  阿里云，华为云，腾讯云   |  root   | |
 

@@ -26,17 +26,4 @@ yum update -y
 
 ## MongoDB Upgrade
 
-### On Linux
-
-The system update command can update MongoDB patch also, e.g: 5.6.x to 5.6.y or 5.7.x to 5.7.y
-
-There are large differences between database distribution versions, which cannot provide a secure upgrade solution
-
-### On Windows
-
-### On Windows
-
-MongoDB upgrade on Windows Server divided into two parts
-
-1. Use Windows Update to upgrade Windows System
-2. Dowload the lastest MongoDB, stop the MongoDB Services and replace the old files of MongoDB
+More detail refer to official docs:[Upgrade to the Latest Revision of MongoDB](https://docs.mongodb.com/manual/tutorial/upgrade-revision/)

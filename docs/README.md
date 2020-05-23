@@ -4,12 +4,11 @@ home: false
 
 # Overview
 
-
 This documentation is provided by [Websoft9](https://www.websoft9.com/), it can help users to acquire skills of MongoDB Deployment, Installation, Configuration, MongoDB Image Management, Backup, Upgrade, Connect Instance and more.
 
-[MongoDB](https://www.mongodb.com/products/community/) is a popular open source database. Whether you are a fast growing web property, technology ISV or large enterprise, MongoDB can cost-effectively help you deliver high performance, scalable database applications. It is intend to provide a high reliable database management system. MariaDB is one of the most popular database servers. Made by the original developers of MongoDB. Guaranteed to stay open source.
+[MongoDB](https://www.mongodb.com/zh) is a scalable, high-performance, open source NoSQL database written in C++.MongoDB, Inc. is the company behind the database for GIANT ideas, offering the best of traditional databases as well as the flexibility, scale and performance today’s applications require. We build MongoDB and the drivers, offer software and services, run MongoDB University (which has trained over 350,000 engineers in MongoDB), and sponsor the MongoDB community.
 
-![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mongodb/mongodb-mariadb-ui-websoft9.png)
+![](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mongodb/mongodb-gui-websoft9.png)
 
 ## Improve
 

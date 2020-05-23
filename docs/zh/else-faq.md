@@ -1,20 +1,26 @@
 # FAQ
 
-#### 单台服务器上是否可以安装多个 MongoDB实例？
-
-理论上可以，但实际上不建议
-
 #### 什么是 MongoDB 的 Client 和 Server？
 
 MongoDB Server 是指 MongoDB 程序本体，而 MongoDB Client 指采用TCP协议用于连接程序本地的客户端。它们是两个完全不同的程序，也就是说它们并需要同时安装到同一台服务上。
 
-#### MongoDB 中的 test 数据库是什么？
+#### mongod 和 mongo 命令有什么区别？
 
-在MongoDB5.7 版本之前，安装 MongoDB 时会默认包含一个 test 数据库，该数据库仅仅用来测试使用，但是所有能连接到MongoDB的用户，几乎都拥有test库的所有权限，因此存在一定的安全隐患。从信息安全角度考虑，如果您发现您使用的 MongoDB 中有该 test 数据库，请**务必删除**。
+mongod 是 MongoDB 的服务端管理命令，用于启动数据库服务  
+mongo 是用于访问 MongoDB 服务的客户端  
 
-#### 是否可以修改 MongoDB 根目录？
+#### MongoDB Community vs MongoDB Enterprise？
 
-可以，但不建议修改
+MongoDB Community is the source available and free to use edition of MongoDB.  
+MongoDB Enterprise is available as part of the MongoDB Enterprise Advanced subscription and includes comprehensive support for your MongoDB deployment.   MongoDB Enterprise also adds enterprise-focused features such as LDAP and Kerberos support, on-disk encryption, and auditing.  
+
+#### MongoDB 中的 admin 数据库是什么？
+
+安装 MongoDB 时会默认包含一个 admin 数据库，如果你创建管理员账户就必须存储到这个admin中
+
+#### 是否可以修改 MongoDB 数据目录？
+
+可以，通过修改 /etc/mongod.conf 配置文件
 
 #### 数据库 root 用户对应的密码是多少？
 
@@ -22,12 +28,21 @@ MongoDB Server 是指 MongoDB 程序本体，而 MongoDB Client 指采用TCP协�
 
 #### 是否有可视化的数据库管理工具？
 
-有，内置phpMyAdmin
+有，内置 [adminMongo](/zh/solution-gui.md#adminmongo)
 
-#### 如何禁止外界访问phpMyAdmin？
+#### MongoDB 提供哪些安全认证？
 
-连接服务器，编辑 [phpMyAdmin 配置文件](/zh/stack-components.md#phpmyadmin)，将其中的 `Require all granted` 更改为 `Require ip 192.160.1.0`，然后重启 Apache 服务
+MongoDB provides various features, such as authentication, access control, encryption, to secure your MongoDB deployments. Some key security features include:
 
+| Authentication | Authorization | TLS/SSL | Enterprise Only |
+| :--- | :--- | :--- | :--- |
+| [Authentication](https://docs.mongodb.com/manual/core/authentication/)<br />[SCRAM](https://docs.mongodb.com/manual/core/security-scram/)<br />[x.509](https://docs.mongodb.com/manual/core/security-x.509/) | [Role-Based Access Control](https://docs.mongodb.com/manual/core/authorization/)<br />[Enable Auth](https://docs.mongodb.com/manual/tutorial/enable-authentication/)<br />[Manage Users and Roles](https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/) | [TLS/SSL (Transport Encryption)](https://docs.mongodb.com/manual/core/security-transport-encryption/)<br />[Configure mongod and mongos for TLS/SSL](https://docs.mongodb.com/manual/tutorial/configure-ssl/)<br />[TLS/SSL Configuration for Clients](https://docs.mongodb.com/manual/tutorial/configure-ssl-clients/) | [Kerberos Authentication](https://docs.mongodb.com/manual/core/kerberos/)<br />[LDAP Proxy Authentication](https://docs.mongodb.com/manual/core/security-ldap/)<br />[Encryption at Rest](https://docs.mongodb.com/manual/core/security-encryption-at-rest/)<br />[Auditing](https://docs.mongodb.com/manual/core/auditing/) |
+
+> MongoDB also provides the [Security Checklist](https://docs.mongodb.com/manual/administration/security-checklist/) for a list of recommended actions to protect a MongoDB deployment.
+
+#### MongoDB 支持哪些平台？
+
+所支持的平台[参考](https://docs.mongodb.com/manual/administration/production-notes/#prod-notes-supported-platforms)
 
 #### 部署和安装有什么区别？
 

@@ -2,40 +2,62 @@
 
 下面每一个方案，都经过实践证明行之有效，希望能够对你有帮助
 
-## 更换MongoDB数据目录
+## 开启远程访问
 
-The data directory for MongoDB is set to */data/mongodb* by default. If you want to modify MongoDB Data Directory, following are the steps for you:
-
-1. Stop the MongoDB Service
-   ```shell
-   sudo sytemctl stop mongodbd
+1. 修改 MongDB 配置文件 *etc/mongod.conf*
    ```
-2. Move the */data/mongodb* to the destination directory, e.g */data/mongodb2* 
-3. Modify the location of this folder modifying the`/etc/my.cnf` file, as shown below:
-   ```shell
-   datadir=/data/mongodb2
+   #1 将authorization由disabled设置为enabled
+   security:
+   authorization: enabled
+
+   #2 将 bindIP 修改为 0.0.0.0 或 本地电脑公网IP
+   net:
+      port: 27017
+      bindIp: 0.0.0.0
    ```
-4. Restart the MongoDB
-   ```shell
-   sudo sytemctl start mongodbd
+   > 0.0.0.0 代表任意公网IP均可访问
+
+2. 重启MongoDB服务
    ```
+   systemctl restart mongod
 
+## 密码管理
 
-## 设置 Binary Log
+### 修改密码
 
-The binary log contains "event" that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes (for example, a DELETE which matched no rows), unless row-based logging is used. The binary log also contains information about how long each statement took that updated data. 
-
-### Binary log configuration
-
-You can modify the MongoDB configuration _/etc/my.cnf_ to change the binary log settings<br />
+参考下面的命令，修改已经创建的管理员账号root的密码
 
 ```
-log_bin = mongodb-bin      # enable Binary log
-binlog_format = mixed    # Binary log format
-expire_logs_days = 7     # Binary log expire time
+mongo admin --u root --p YOURPASSWORD
+MongoDB shell version v4.0.18
+connecting to: mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb
+> db = db.getSiblingDB('admin')
+admin
+> db.changeUserPassword("root", "NEWPASSWORD")
+> exit
 ```
 
-### Binary log file size
-Some times, there a lot of event for your database, then the binary log file size very rapid growth and your disk space may not enough, if there no space on disk, your MongoDB Service can not start.
+### 重置密码
 
-Suggest you change the expire_logs_day to more smaller if you binary log file size is too big
+重置密码即已经忘记密码的情况下，通过特殊手段重新设置新密码的过程。
+
+1. 修改 MongDB 配置文件 *etc/mongod.conf*，将authorization由disabled设置为enabled
+   ```
+   security:
+   authorization: disabled
+
+   ```
+2. 重启MongoDB服务
+   ```
+   systemctl restart mongod
+   ```
+3. 重新设置密码
+   ```
+   mongo
+   > db = db.getSiblingDB('admin')
+   admin
+   > db.changeUserPassword("root", "NEWPASSWORD")
+   ```
+
+4. 重复第1步，但将authorization由enabled设置为disabled
+5. 重启MongoDB服务

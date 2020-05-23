@@ -5,55 +5,59 @@ If you have completed the MongoDB deployment on Cloud Platform, the following st
 ## Preparation
 
 1. Get the **Internet IP** on your Cloud Platform
-2. Check you **[Inbound of Security Group Rule](https://support.websoft9.com/docs/faq/tech-instance.html)** of Cloud Console to ensure the TCP:9090 is allowed if you using the phpMyAdmin on Docker
-3. Check you **[Inbound of Security Group Rule](https://support.websoft9.com/docs/faq/tech-instance.html)** of Cloud Console to ensure the TCP:3306 is allowed if you want to connect MongoDB from local GUI tools
+2. Check you **[Inbound of Security Group Rule](https://support.websoft9.com/docs/faq/tech-instance.html)** of Cloud Console to ensure the **TCP:27017 和TCP:9091** 
 
-## MongoDB Installation Wizard
+> 27017 if for MongoDB server, 9091 is for web GUI tool adminMongo
+
+## MongoDB Initial verification
+
+部署 MongoDB 之后，依次完成下面的步骤，验证其可用性
 
 ### Check MongoDB
 
-1. Use the **SSH** to connect Server, and run these command below to view the installation information and running status
+1. Use the **SSH** to connect Server, and run the command below to view the installation information and running status
    ```
-   sudo systemctl status mongodbd
-   #### or ####
-   sudo systemctl status mongodb
+   sudo systemctl status mongod
    ```
 2. You can ge the message from SSH " Active: active (running)... " when MongoDB is running
 
-Then, you can login MongoDB 
+### Connect MongoDB
 
-### Login MongoDB with commands
-
-1. Using SSH to connect MongoDB Server(or remote to Windows Server), run the following command
+1. Use the **SSH** to connect Server, and run `mongo` command 
    ~~~
-   #assume the root password is `123456`
-   mongodb -uroot –p123456
+   mongo
+
+   ---
+   MongoDB shell version v4.0.18
+   connecting to: mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb
+   Implicit session: session { "id" : UUID("e5c50eca-e51b-482e-b0bd-24edc2d1e433") }
+   MongoDB server version: 4.0.18
+   Welcome to the MongoDB shell.
+   For interactive help, type "help".
+   For more comprehensive documentation, see
+         http://docs.mongodb.org/
+   Questions? Try the support group
+         http://groups.google.com/group/mongodb-user
    ~~~
 
-2. You can find the MongoDB version from the message
-   ![](http://libs.websoft9.com/Websoft9/DocsPicture/en/mongodb/mongodb01.png)
+2. List all databases and users
+   ```
+   # list all databases
+   show dbs
 
+   # use admin, and list all users
+   use admin
+   show users
+   ```
 
-### Login MongoDB with phpMyAdmin
-
-If you used the deployment solution included the phpMyAdmin, the database management is very easy
-
-1. Using local Chrome or Firefox to visit the URL *http://Internet IP:9090* to visit phpMyAdmin
-  ![login phpMyadmin](https://libs.websoft9.com/Websoft9/DocsPicture/en/mongodb/mongodb-login-websoft9.png)
-2. Input your database account([Don't know password?](/stack-accounts.md#mongodb))
-3. Start using phpMyAdmin to modify root password of MongoDB
-  ![phpMyadmin](http://libs.websoft9.com/Websoft9/DocsPicture/en/phpmyadmin/phpmyadmin-changepwds-websoft9.png)
-
-> More useful phpMyAdmin guide, please refer to [phpMyAdmin chapter](/solution-phpmyadmin.md) of this documentation
-
-
+> More details about MongoDB, refer to official docs [MongoDB Administration](https://docs.mongodb.com/manual/administration/)
 
 ## Q&A
 
-#### I can't visit the phpMyAdmin?
+#### I can't visit adminMongo?
 
-Your TCP:9090 of Security Group Rules is not allowed so there no response from Chrome or Firefox
+Your TCP:9091 of Security Group Rules is not allowed so there no response from Chrome or Firefox
 
-#### How phpMyAdmin installed?
+#### Does MongoDB enable account authentication by default?
 
-Install phpMyadmin used Docker, that can make sure MongoDB environment has good isolation
+No, you should modify the configuration file */etc/mongod.conf* if you want 

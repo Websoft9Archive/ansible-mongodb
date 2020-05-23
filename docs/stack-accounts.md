@@ -9,7 +9,6 @@ These accounts are required for MongoDB image installation and configuration
   ```
   cat /credentials/password.txt
   ```
-   ![Run the cat command](https://libs.websoft9.com/Websoft9/DocsPicture/zh/common/catdbpassword-websoft9.png)
 
 ## Linux
 

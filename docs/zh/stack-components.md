@@ -4,38 +4,18 @@ MongoDB 预装包包含 MongoDB 运行所需一序列支撑软件（简称为“
 
 ## 路径
 
-MongoDB 安装到Linux还是Windows系统，对应的路径有很大的差异，请根据实际情况参考：
+### MongoDB
 
-> 如果是mariadb镜像，以上路径mongodb替换即可
+MongoDB 数据目录: */var/lib/mongodb*  
+MongoDB 配置文件: */etc/mongod.conf*  
+MongoDB 日志文件: */var/log/mongodb*  
 
-### Linux
+### adminMongo on Docker
 
-#### MongoDB
+adminMongo 采用 Docker 安装
 
-MongoDB 安装目录: *usr/local/mongodb*  
-MongoDB 配置文件: *etc/my.cnf*   
-MongoDB 数据目录：*/data/mongodb*   
-MongoDB 日志文件: */var/log/mongodb/mongodbd.log*   
-MongoDB PIN: */run/mongodbd/mongodbd.pid*   
-MongoDB Socket: */var/lib/mongodb/mongodb.sock*
-
-#### phpMyAdmin on Docker
-
-除了LAMP或LNMP环境之外，phpMyAdmin 是采用 Docker 方式来安装的
-
-#### phpMyAdmin on PHP
-
-对于 PHP 环境预装包来说（例如：LAMP/LNMP等），phpMyAdmin 是作为一个 PHP 应用程序来安装的   
-
-phpMyAdmin 安装路径: */data/apps/phpmyadmin*  
-phpMyAdmin 配置文件: */data/apps/phpmyadmin/config.inc.php*   
-phpMyAdmin 虚拟主机配置文件: */etc/httpd/conf.d/phpMyAdmin.conf*   
-
-### Windows
-
-* 目录：C:/websoft9/mongodb
-* 配置文件：C:/websoft9/mongodb/etc/my.ini
-* 数据文件目录:：C:/websoft9/mongodb/data
+Docker 根目录: */var/lib/docker*  
+Docker 镜像目录: */var/lib/docker/image*  
 
 ## 端口号
 
@@ -45,9 +25,8 @@ phpMyAdmin 虚拟主机配置文件: */etc/httpd/conf.d/phpMyAdmin.conf*
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| phpMyAdmin on Docker | 9090 | 通过 HTTP 访问 phpMyAdmin | 可选 |
-| MongoDB | 3306 | 远程连接MongoDB | 可选 |
-| MariaDB | 3306 | 远程连接MariaDB | 可选 |
+| adminMongo on Docker | 9091 | 通过 HTTP 访问 adminMongo | 可选 |
+| MongoDB Server | 27017 | 远程连接 MongoDB | 可选 |
 
 ## 版本号
 

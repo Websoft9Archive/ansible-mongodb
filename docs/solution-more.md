@@ -5,79 +5,64 @@ Each of the following solutions has been proven to be effective and we hope to b
 The data directory for MongoDB is set to /data/mongodb by default. If you want to modify MongoDB Data Directory, following are the steps for you:
 
 
-## Modify MongoDB Data Directory
+## Enable the MongoDB remote connection
 
-The data directory for MongoDB is set to */data/mongodb* by default. If you want to modify MongoDB Data Directory, following are the steps for you:
-
-1. Stop the MongoDB Service
-   ```shell
-   sudo sytemctl stop mongodbd
+1. Use **SSH** to connect MongoDB server and modify the MongoDB configuration file: *etc/mongod.conf*
    ```
-2. Move the */data/mongodb* to the destination directory, e.g */data/mongodb2* 
-3. Modify the location of this folder modifying the`/etc/my.cnf` file, as shown below:
-   ```shell
-   datadir=/data/mongodb2
+   #1 set authorization **disabled** to **enabled**
+   security:
+   authorization: enabled
+
+   #2 set bindIP to 0.0.0.0
+   net:
+      port: 27017
+      bindIp: 0.0.0.0
    ```
-4. Restart the MongoDB
-   ```shell
-   sudo sytemctl start mongodbd
+   > 0.0.0.0 means any Internet IP can connect your MongoDB
+
+2. Restart MongoDB service
+   ```
+   systemctl restart mongod
+   ```
+3. Go to the Cloud Console and enable the **TCP:27017** port of Security Group
+
+
+## Password management
+
+### Modify password
+
+You can modify the password of **root** user which added on your MongoDB by the following command
+
+```
+mongo admin --u root --p YOURPASSWORD
+MongoDB shell version v4.0.18
+connecting to: mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb
+> db = db.getSiblingDB('admin')
+admin
+> db.changeUserPassword("root", "NEWPASSWORD")
+> exit
+```
+
+### Reset password
+
+Reset password is the process of resetting a new password through special solutions in case the password has been forgotten.
+
+1. Use **SSH** to connect MongoDB server and modify the MongoDB configuration file: *etc/mongod.conf*
+   ```
+   security:
+   authorization: disabled
+   ```
+2. Restart the MongoDB service
+   ```
+   systemctl restart mongod
+   ```
+3. Run the MongoDB command to set new password
+   ```
+   mongo
+   > db = db.getSiblingDB('admin')
+   admin
+   > db.changeUserPassword("root", "NEWPASSWORD")
    ```
 
-## Set The Binary Log
-
-The binary log contains "event" that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes (for example, a DELETE which matched no rows), unless row-based logging is used. The binary log also contains information about how long each statement took that updated data. 
-
-### Binary log configuration
-
-You can modify the MongoDB configuration _/etc/my.cnf_ to change the binary log settings<br />
-
-```
-log_bin = mongodb-bin      # enable Binary log
-binlog_format = mixed    # Binary log format
-expire_logs_days = 7     # Binary log expire time
-```
-
-### Binary log file size
-Some times, there a lot of event for your database, then the binary log file size very rapid growth and your disk space may not enough, if there no space on disk, your MongoDB Service can not start.
-
-Suggest you change the expire_logs_day to more smaller if you binary log file size is too big
-
-## Secure MongoDB
-
-Once you have created a new database and user for your application, connect to your MongoDB server and follow these recommendations:
-
-- Remove anonymous users:
-
-```sql
-mongodb> DELETE FROM mongodb.user WHERE User='';
-```
-
-- Remove the _test_ database and access to it:
-
-```sql
-mongodb> DROP DATABASE test;
-mongodb> DELETE FROM mongodb.db WHERE Db='test' OR Db='test\\_%';
-```
-
-- Disallow root login remotely:
-```sql
-mongodb> DELETE FROM mongodb.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-```
-
-- Don't forget to reload the privileges tables to apply the changes:
-```sql
-mongodb> FLUSH PRIVILEGES;
-```
-
-- Change your _root_ user password.
-- It is strongly recommended that you do not have empty passwords for any user accounts when using the server for any production work.<br />
-- If you don't need remote access, uncomment the line
-
-```
-#bind-address=127.0.0.1
-```
-
-- in the MongoDB configuration file to only listen for connections on the local machine. Restart the server once done.
-
-
-> Prior to MongoDB 5.7, when you installed MongoDB, it included a test database by default. This database is only used for testing, but all users who can connect to MongoDB have almost all the permissions of the test library, so there are certain security risks. From an information security perspective, if you find that you have the test database in MongoDB, be sure to remove it.
+4. Repeat step 1, but set authorization to disabled
+5. Restart the MongoDB service again
