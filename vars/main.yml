@@ -3,5 +3,5 @@ docker_applications:
   - adminmongo
 init_db: 
   mongodb:
-    user: root
+    admin: root
     password: "123456"
