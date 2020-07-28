@@ -1,6 +1,9 @@
 mongodb_root_password: "123456"
+common_os_support: ["CentOS", "Ubuntu", "Amazon"]
+
 docker_applications: 
   - adminmongo
+  
 init_db: 
   mongodb:
     admin: root
