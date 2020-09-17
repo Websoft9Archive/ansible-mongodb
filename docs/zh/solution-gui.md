@@ -56,8 +56,10 @@ adminMongo 是一款在线web版工具，默认已经安装到了MongoDB部署�
 2. 本地电脑浏览器访问：*http://服务器公网IP:9091* 打开adminMongo界面
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mongodb/adminmongo-connect001-websoft9.png)
 
-3. 以连接字符串为例（这里的IP地址是公网IP）
+3. 以连接字符串为例（这里的IP地址是公网IP或本地IP）
    ```
+   # 默认连接到config数据库，172.17.0.1为内网IP
+   mongodb://root:1cTFecwTEs@172.17.0.1:27017/admin
    # 默认连接到config数据库
    mongodb://root:1cTFecwTEs@40.114.115.58
    # 默认连接到admin数据库
