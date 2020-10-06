@@ -42,6 +42,6 @@ lsb_release -a
 # MongoDB version
 mongodb -V
 
-# MongoDB Version
+# Docker Version
 docker -v
 ```
