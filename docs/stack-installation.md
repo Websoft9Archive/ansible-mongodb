@@ -11,7 +11,7 @@ If you have completed the MongoDB deployment on Cloud Platform, the following st
 
 ## MongoDB Initial verification
 
-部署 MongoDB 之后，依次完成下面的步骤，验证其可用性
+You should verify the MongoDB when completed deployment:
 
 ### Check MongoDB
 
