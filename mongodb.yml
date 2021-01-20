@@ -19,7 +19,8 @@
       6: MongoDB3.6(not support Ubuntu18 and AmazonLinux2)\n
       7: MongoDB3.7(not support Ubuntu18)\n
       8: MongoDB4.0\n
-      9: MongoDB4.2\n"
+      9: MongoDB4.2\n
+      10: MongoDB4.4\n"
       private: no
       default: 4
       
@@ -62,6 +63,7 @@
       '7': '3.7'
       '8': '4.0'
       '9': '4.2'
+      '10': '4.4'
       
     mongodb_server_select:
       '1': 'community'
