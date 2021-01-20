@@ -1,16 +1,7 @@
 # CHANGELOG
-## To do
 
-* 增加元数据，维护不同系统下的版本号，用于安装纠错
+## Release v4.4.3-1  2021-01-20
+### Fixes and Enhancements
+- add new version 4.4.3 #1
 
-## Logs
-
-* 2020-03-05  测试通过
-* 2020-03-04  改写项目
-
-### Bug Fixes
-
-* 2020-03-28  删除了4.1版本，官方提示此版本不稳定
-
-### Features
 
