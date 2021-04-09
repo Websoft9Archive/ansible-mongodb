@@ -20,7 +20,7 @@
      **密码存储路径**：*C:/credentials/password.txt*     
      **获取方式**： 远程桌面到服务器，打开此文件即可   
 
- > 需要登录MongoDB，请参考 [图形化工具：phpMyAdmin](/zh/solution-phpmyadmin.md)
+ > 需要登录MongoDB，请参考 [图形化工具：adminMongo](/zh/solution-gui.md)
 
 
 ## Linux
