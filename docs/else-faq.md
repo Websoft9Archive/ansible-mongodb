@@ -26,6 +26,11 @@ MongoDB Server refers to the MongoDB program ontology, and MongoDB Client refers
 MongoDB Community is the source available and free to use edition of MongoDB.  
 MongoDB Enterprise is available as part of the MongoDB Enterprise Advanced subscription and includes comprehensive support for your MongoDB deployment.   MongoDB Enterprise also adds enterprise-focused features such as LDAP and Kerberos support, on-disk encryption, and auditing.  
 
+#### Could I directly access mongodb without authentication?
+
+Yes, MongoDB does not enable access control during installation by default. So it can be accessed without mongodb user name and password, e.g. through this URL：mongodb://localhost/admin.
+ > MongoDB [Enable Access Control](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
+
 #### What is the **admin** database of MongoDB?
 
 The MongoDB installation will include an **admin** database by default. If you create an administrator account, you must store it in this admin
