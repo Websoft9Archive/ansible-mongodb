@@ -16,7 +16,7 @@ MongoDB Enterprise is available as part of the MongoDB Enterprise Advanced subsc
 
 #### 是否可以不进行身份验证就直接访问 MongoDB？
 
-可以，默认安装时 MongoDB 没有开启访问控制，无须MongoDB 用户名密码就可以访问，例如通过此URL访问：mongodb://localhost/admin。
+可以，默认安装时 MongoDB 没有开启访问控制，无需MongoDB 用户名密码就可以访问，例如通过此URL访问：mongodb://localhost/admin。
  > MongoDB [访问控制参考](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
 
 #### MongoDB 中的 admin 数据库是什么？
