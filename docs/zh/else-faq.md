@@ -14,6 +14,11 @@ mongo 是用于访问 MongoDB 服务的客户端
 MongoDB Community is the source available and free to use edition of MongoDB.  
 MongoDB Enterprise is available as part of the MongoDB Enterprise Advanced subscription and includes comprehensive support for your MongoDB deployment.   MongoDB Enterprise also adds enterprise-focused features such as LDAP and Kerberos support, on-disk encryption, and auditing.  
 
+#### 是否可以不进行身份验证就直接访问 MongoDB？
+
+可以，默认安装时 MongoDB 没有开启访问控制，无需MongoDB 用户名密码就可以访问，例如通过此URL访问：mongodb://localhost/admin。
+ > MongoDB [访问控制参考](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
+
 #### MongoDB 中的 admin 数据库是什么？
 
 安装 MongoDB 时会默认包含一个 admin 数据库，如果你创建管理员账户就必须存储到这个admin中

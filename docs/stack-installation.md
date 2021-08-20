@@ -5,7 +5,7 @@ If you have completed the MongoDB deployment on Cloud Platform, the following st
 ## Preparation
 
 1. Get the **Internet IP** on your Cloud Platform
-2. Check you **[Inbound of Security Group Rule](https://support.websoft9.com/docs/faq/tech-instance.html)** of Cloud Console to ensure the **TCP:27017 和TCP:9091** 
+2. Check you **[Inbound of Security Group Rule](https://support.websoft9.com/docs/faq/tech-instance.html)** of Cloud Console to ensure the **TCP:27017 and TCP:9091** 
 
 > 27017 if for MongoDB server, 9091 is for web GUI tool adminMongo
 

@@ -12,7 +12,7 @@ MongoDB 日志文件: */var/log/mongodb*
 
 ### adminMongo on Docker
 
-adminMongo 采用 Docker 安装
+adminMongo 是一款可视化 MongoDB 管理工具，采用 Docker 安装
 
 Docker 根目录: */var/lib/docker*  
 Docker 镜像目录: */var/lib/docker/image*  
