@@ -20,7 +20,7 @@
       7: MongoDB3.7(support Ubuntu16)\n
       8: MongoDB4.0(support Ubuntu16|18 and redhat)\n
       9: MongoDB4.2(support Ubuntu16|18 and redhat)\n
-      10: MongoDB4.4(support Ubuntu16|18|20 and redhat)\n"
+      10: MongoDB4.4(support Ubuntu16|18|20 and redhat)\n
       11: MongoDB5.0(support Ubuntu16|18|20 and redhat)\n"
       private: no
       default: 4
