@@ -21,6 +21,7 @@
       8: MongoDB4.0(support Ubuntu16|18 and redhat)\n
       9: MongoDB4.2(support Ubuntu16|18 and redhat)\n
       10: MongoDB4.4(support Ubuntu16|18|20 and redhat)\n"
+      11: MongoDB5.0(support Ubuntu16|18|20 and redhat)\n"
       private: no
       default: 4
       
@@ -64,6 +65,7 @@
       '8': '4.0'
       '9': '4.2'
       '10': '4.4'
+      '11': '5.0'
       
     mongodb_server_select:
       '1': 'community'
