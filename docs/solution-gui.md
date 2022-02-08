@@ -1,6 +1,6 @@
 # GUI
 
-MongoDB的图形化工具分为桌面版和Web版两种形式，每种形式的工具都有一些比较受欢迎的工具：
+The GUI of MongoDB are divided into desktop version and web version. Each form of tool has some popular tools:
 
 #### Desktop
 - [MongoDB Compass Community](https://www.mongodb.com/download-center/compass) - A free tool for developing with MongoDB and includes a subset of the features of Compass.
